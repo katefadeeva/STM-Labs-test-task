@@ -1,0 +1,33 @@
+{
+  "name": "stm-labs-test-task",
+  "version": "1.0.0",
+  "description": "Test task from STM (searchable table). Developed on pure JS",
+  "main": "/src/main.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "prod": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katefadeeva/STM-Labs-test-task.git"
+  },
+  "author": "Katerina Fadeeva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/katefadeeva/STM-Labs-test-task/issues"
+  },
+  "homepage": "https://github.com/katefadeeva/STM-Labs-test-task#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-loader": "^8.2.2",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "babel-preset-env": "^1.7.0"
+  }
+}
