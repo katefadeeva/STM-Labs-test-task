@@ -1,4 +1,4 @@
-const tableBody = document.querySelector('.table__body');
+const tableBody = document.getElementById('table__body');
 
 function addCell (text) {
   const cell = document.createElement('td');
