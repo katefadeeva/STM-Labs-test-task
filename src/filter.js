@@ -29,7 +29,6 @@ function deleteTable() {
 }
 
 export default function getFilter(data) {
-  console.log(data);
     const copyData = JSON.parse(JSON.stringify(data));
     document.getElementById('search__input').addEventListener('input', debounce((event) => {
       deleteTable();
