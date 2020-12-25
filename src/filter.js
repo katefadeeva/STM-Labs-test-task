@@ -1,10 +1,10 @@
-import getTable from "./table";
+import createTable from "./table";
 
-function debounce(foo, ms) {
+function debounce(func, ms) {
   let isCooldown = false;
   return function() {
     if (isCooldown) return;
-    foo.apply(this, arguments);
+    func.apply(this, arguments);
     isCooldown = true;
     setTimeout(() => isCooldown = false, ms);
   };
@@ -28,11 +28,16 @@ function deleteTable() {
   }
 }
 
-export default function getFilter(data) {
+export default function createFilter(data) {
     const copyData = JSON.parse(JSON.stringify(data));
     document.getElementById('search__input').addEventListener('input', debounce((event) => {
       deleteTable();
-      getTable(filterTable(copyData, event.target.value));
+      if (!filterTable(copyData, event.target.value).length) {
+        return alert('Unfortunately, nothing was found. Try again.');
+      } else {
+        createTable(filterTable(copyData, event.target.value));
+      }
+
     },100));
     // document.querySelector('.reset__btn').addEventListener('click', () => {
     //   deleteTable();

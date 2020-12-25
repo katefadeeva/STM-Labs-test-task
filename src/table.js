@@ -23,18 +23,17 @@ function addImage (picture) {
   return cell;
 }
 
-function changeDate(ms) {
-  const date = new Date(ms);
-  let day = date.getDate();
-  if (day < 10) day = `0${day}`;
-  let month = date.getMonth() + 1;
-  if (month < 10) month = `0${month}`;
-  const year = date.getFullYear();
-  return `${day}.${month}.${year}`;
+function changeDate(timestamp) {
+  const date = new Date(timestamp);
+  const options = {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric"
+  }
+  return date.toLocaleDateString('ru', options);
 }
 
-export default function getTable(data) {
-  console.log(data);
+export default function createTable(data) {
   data.forEach(item => {
     const row = document.createElement('tr');
     const image = addImage(item.picture);

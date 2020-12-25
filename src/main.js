@@ -1,18 +1,22 @@
-import getTable from "./table";
-import getFilter from "./filter";
+import createFilter from "./filter";
+import createTable from "./table";
 
 async function getPeople () {
-  const responce = await fetch('https://randomuser.me/api/?results=15');
-  const people = await responce.json();
-  return people.results;
+  const response = await fetch('https://randomuser.me/api/?results=15');
+  if (response.ok) {
+    const people = await response.json();
+    return people.results;
+  } else {
+   throw Error (response.status);
+  }
 }
 
 async function start () {
   const data = await getPeople();
   document.querySelector('.loader').style.display = 'none';
   document.querySelector('.wrapper').style.display = 'block';
-  getFilter(data);
-  getTable(data);
+  createFilter(data);
+  createTable(data);
 }
 
 start();
