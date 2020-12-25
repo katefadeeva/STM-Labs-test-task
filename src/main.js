@@ -7,7 +7,7 @@ async function getPeople () {
     const people = await response.json();
     return people.results;
   } else {
-   throw Error (response.status);
+   throw new Error(response.status);
   }
 }
 
